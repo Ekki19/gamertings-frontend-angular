@@ -1,7 +1,8 @@
 <div class="users-container">
   <h2>Users</h2>
-    <!-- Adjust fields to your User model -->
-    <strong>USERNAME</strong>
-    <span> USER EMAIL</span>
-    <small class="muted"> (id: USER ID)</small>
+  @for (user of users(); track user.user_id) {
+    <li>{{ user.username }}</li>
+    } @empty {
+    <li>There are no items.</li>
+  }
 </div>

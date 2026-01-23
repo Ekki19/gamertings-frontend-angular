@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import { User} from '../../common/User';
 import { UserService} from '../../services/UserService';
 
 @Component({
   selector: 'app-users',
+  standalone: true,
   templateUrl: './users.html',
   styleUrls: ['./users.css'] // optional, create if you'd like styles
 })
 export class Users implements OnInit {
-  users: User[] = [];
+  users = signal<User[]>([]);
   errorMessage: string | null = null;
   loading = false;
 
@@ -24,7 +25,7 @@ export class Users implements OnInit {
 
     this.userService.getUsers().subscribe({
       next: (data: User[]) => {
-        this.users = data;
+        this.users.set(data);
         console.log('Users loaded in component:', data);
         this.loading = false;
       },
