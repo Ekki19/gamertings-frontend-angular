@@ -1,10 +1,10 @@
 import {Component, signal} from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
-import { Button } from 'primeng/button';
+import {Search} from './components/search/search';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Button, RouterLink],
+  imports: [RouterOutlet, RouterLink, Search],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
