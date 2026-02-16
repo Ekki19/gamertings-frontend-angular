@@ -1,0 +1,10 @@
+<input [(ngModel)]="searchTerm" placeholder="search for game..."/>
+<p-button (click)="onSearch()">Search</p-button>
+
+<div>
+  @for (game of games; track game.id) {
+    <h3>{{ game.name }}</h3>
+    <p>{{ game.summary }}</p>
+  }
+</div>
+
