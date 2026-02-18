@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { GameService} from '../../services/game/game-service';
 import {FormsModule} from '@angular/forms';
 import {Button} from 'primeng/button';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +10,8 @@ import {Button} from 'primeng/button';
   styleUrl: './search.css',
   imports: [
     FormsModule,
-    Button
+    Button,
+    NgOptimizedImage
   ]
 })
 export class Search {

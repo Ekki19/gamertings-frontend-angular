@@ -3,8 +3,14 @@
 
 <div>
   @for (game of games; track game.id) {
-    <h3>{{ game.name }}</h3>
-    <p>{{ game.summary }}</p>
+    @if (game.cover?.image_id) {
+      <img [ngSrc]="'https://images.igdb.com/igdb/image/upload/t_cover_big/' + game.cover.image_id + '.jpg'"
+           width="227"
+           height="320"
+           alt="{{ game.name }}">
+    } @else {
+      <div class="no-cover">Kein Bild verfügbar</div>
+    }
   }
 </div>
 
