@@ -13,6 +13,7 @@ export class GameService {
 
   search(name: string): Observable<any[]> {
     const url = `${this.baseUrl}/search`;
+    console.log(`${url}?name=${name}`);
     return this.http.get<any[]>(`${url}?name=${name}`);
 
   }

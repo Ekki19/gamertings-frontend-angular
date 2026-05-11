@@ -2,15 +2,20 @@
 <p-button (click)="onSearch()">Search</p-button>
 
 <div>
-  @for (game of games; track game.id) {
-    @if (game.cover?.image_id) {
-      <img [ngSrc]="'https://images.igdb.com/igdb/image/upload/t_cover_big/' + game.cover.image_id + '.jpg'"
-           width="227"
-           height="320"
-           alt="{{ game.name }}">
-    } @else {
-      <div class="no-cover">Kein Bild verfügbar</div>
-    }
+  @for (game of games(); track game.id) {
+    <div class="game-card">
+      @if (game.game_type === 0 && game.cover?.image_id && game.involved_companies?.length > 0) {
+        <img [ngSrc]="'https://images.igdb.com/igdb/image/upload/t_cover_big/' + game.cover.image_id + '.jpg'"
+             width="227"
+             height="320"
+             alt="">
+        <div class="type-badge">
+          {{ gameTypeMap[game.game_type] || 'Unbekannt'}}
+        </div>
+        <h3>{{ game.name }}</h3>
+        <span class="dev-badge">{{ game.involved_companies[0].company.name }}</span>
+      }
+    </div>
   }
 </div>
 
