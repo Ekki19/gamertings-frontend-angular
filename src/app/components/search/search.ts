@@ -3,6 +3,7 @@ import { GameService} from '../../services/game/game-service';
 import {FormsModule} from '@angular/forms';
 import {Button} from 'primeng/button';
 import {NgOptimizedImage} from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,8 @@ import {NgOptimizedImage} from '@angular/common';
   imports: [
     FormsModule,
     Button,
-    NgOptimizedImage
+    NgOptimizedImage,
+    RouterLink
   ]
 })
 export class Search {
